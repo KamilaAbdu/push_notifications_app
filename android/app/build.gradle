@@ -6,8 +6,15 @@ plugins {
 
 android {
     namespace = "com.example.push_notifications_app"
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    compileSdkVersion 34  // Обновляем compileSdkVersion до 34
+
+    defaultConfig {
+        applicationId = "com.example.push_notifications_app"
+        minSdkVersion 21  // Оставляем 21
+        targetSdkVersion 34  // Обновляем targetSdkVersion до 34
+        versionCode 1
+        versionName "1.0"
+    }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -16,14 +23,6 @@ android {
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8
-    }
-
-    defaultConfig {
-        applicationId = "com.example.push_notifications_app"
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
     }
 
     buildTypes {
@@ -39,6 +38,7 @@ flutter {
 
 dependencies {
     implementation 'com.google.firebase:firebase-messaging:23.0.7'
+    implementation 'com.google.firebase:firebase-core:20.1.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
